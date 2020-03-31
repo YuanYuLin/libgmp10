@@ -42,10 +42,12 @@ def MAIN_EXTRACT(args):
     set_global(args)
 
     ops.mkdir(dst_lib_dir)
-    ops.copyto(ops.path_join(src_usr_lib_dir, "libgmp.so.10.3.2"), dst_lib_dir)
-    ops.ln(dst_lib_dir, "libgmp.so.10.3.2", "libgmp.so.10.3")
-    ops.ln(dst_lib_dir, "libgmp.so.10.3.2", "libgmp.so.10")
-    ops.ln(dst_lib_dir, "libgmp.so.10.3.2", "libgmp.so")
+    
+    lib_so = "libgmp.so.10.2.0"
+    ops.copyto(ops.path_join(src_usr_lib_dir, lib_so), dst_lib_dir)
+    ops.ln(dst_lib_dir, lib_so, "libgmp.so.10.2")
+    ops.ln(dst_lib_dir, lib_so, "libgmp.so.10")
+    ops.ln(dst_lib_dir, lib_so, "libgmp.so")
     return True
 
 def MAIN_PATCH(args, patch_group_name):
